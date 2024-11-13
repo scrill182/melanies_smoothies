@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-
 from snowflake.snowpark.functions import col
 import requests
 
@@ -10,7 +9,6 @@ st.write(
     """Choose the fruits you want in your custom smoothie!
     """
 )
-###
 title = st.text_input("Name on Smoothie", "")
 st.write("The name on your smoothie is ", title)
 ####
@@ -22,7 +20,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 pd_df= my_dataframe.to_pandas()
 st.dataframe(pd_df)
 ####st.warning('Por cerrar.')
-st.stop()
+####st.stop()
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredientts :'
@@ -51,13 +49,10 @@ if ingredients_list:
 
   #  st.write(ingredients_string)
     
-
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string +"""','"""+ title+"""')"""
 
   #  st.write(my_insert_stmt)
-
-
 
     time_to_insert= st.button('submit order')
     if time_to_insert:
