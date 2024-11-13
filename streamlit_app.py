@@ -21,17 +21,14 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 #st.stop()
 pd_df= my_dataframe.to_pandas()
 st.dataframe(pd_df)
-st.warning('Por cerrar.')
+####st.warning('Por cerrar.')
 st.stop()
-
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredientts :'
     , my_dataframe
     ,max_selections=5
 )
-
-
 
 if ingredients_list:
     st.write(ingredients_list)
