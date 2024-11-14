@@ -40,7 +40,7 @@ if ingredients_list:
 ###
          # Fetch nutrition info from FruityVice API
         try:
-            fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{search_on}")
+            fruityvice_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
             fruityvice_response.raise_for_status()  # This will raise an error for 4xx/5xx HTTP errors
             
             # Check if the response is empty
